@@ -9,15 +9,18 @@ def test(request):
 
 @csrf_exempt
 def login(request):
-	data = json.loads(request.POST)
+	data = request.POST
+	# data=json.dumps(data)
+	# data = request.body
+	# data=json.dumps(request.body)
+	# data = json.loads(request.body.decode('utf-8'))
 	#print(data['user'])
-	p1=Person.objects.filter(user=data['user'],password=data['password'])
+	# p1=Person.objects.filter(user=data['user'],password=data['password'])
 	#p1=Person.objects.filter(user="Vineeth",password='password')
 	print(data)
-	if p1:
-		
-		return HttpResponse("login info")
-		print("Logged in")
-	else:
-		return HttpResponse("Not logged in")
-		print("Not Logged in")
+	# if true:
+	# print(data['name'])
+	return HttpResponse("login info")
+
+	# else:
+	# 	return HttpResponse("Not logged in")
